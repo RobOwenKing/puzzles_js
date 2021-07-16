@@ -1,14 +1,21 @@
-const canvas = document.getElementById('canvas');
-const context = canvas.getContext('2d');
+const cvs = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+
+const CELL_SIZE = 48;
 
 class Puzzle {
-  constructor(ctx) {
-    this.ctx = ctx;
+  constructor(context) {
+    this.canvas = canvas;
+    this.context = context;
     this.widthInCells = 9;
     this.heightInCells = 9;
   }
+
+  draw() {
+    canvas.width = CELL_SIZE * this.widthInCells;
+    canvas.height = CELL_SIZE * this.heightInCells;
+  }
 }
 
-const board = new Puzzle();
-
-console.log(board.widthInCells);
+const board = new Puzzle(ctx);
+board.draw();
