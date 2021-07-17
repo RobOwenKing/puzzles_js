@@ -1,0 +1,11 @@
+{
+  "name": "puzzles_js",
+  "version": "1.0.0",
+  "description": "A web app to display a range of pencil puzzles using JS and HTML Canvas.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "RobOwenKing",
+  "license": "ISC"
+}
