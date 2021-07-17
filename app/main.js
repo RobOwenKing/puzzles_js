@@ -19,3 +19,5 @@ class Puzzle {
 
 const board = new Puzzle(ctx);
 board.draw();
+
+console.log("Hello from main.js.");
