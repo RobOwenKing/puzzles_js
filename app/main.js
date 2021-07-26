@@ -1,23 +1,10 @@
-const cvs = document.getElementById('canvas');
-const ctx = canvas.getContext('2d');
+import { Puzzle } from '../src/puzzle.js';
 
-const CELL_SIZE = 48;
-
-class Puzzle {
-  constructor(context) {
-    this.canvas = canvas;
-    this.context = context;
-    this.widthInCells = 9;
-    this.heightInCells = 9;
-  }
-
-  draw() {
-    canvas.width = CELL_SIZE * this.widthInCells;
-    canvas.height = CELL_SIZE * this.heightInCells;
-  }
+const init = () => {
+  const svg = document.getElementById('grid');
+  const puzzle = new Puzzle(svg, 9, 9);
+  puzzle.draw();
+  console.log(puzzle);
 }
 
-const board = new Puzzle(ctx);
-board.draw();
-
-console.log("Hello from main.js.");
+init();
