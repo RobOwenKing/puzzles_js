@@ -9,11 +9,10 @@ export class Puzzle {
     this.rows = _rows;
     this.cols = _cols;
 
-    this.constraints = _constraints.map(([type, data]) => {
-          return new CONSTRAINT_CLASSES[type](data);
-        });
-
     this.cells = this.initCells();
+    this.constraints = _constraints.map(([type, data]) => {
+          return new CONSTRAINT_CLASSES[type](data, this.cells);
+        });
   }
 
   initCells() {
