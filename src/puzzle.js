@@ -13,17 +13,19 @@ export class Puzzle {
           return new CONSTRAINT_CLASSES[type](data);
         });
 
-    this.cells = [];
+    this.cells = this.initCells();
   }
 
   initCells() {
+    const returnable = [];
     let index = 0;
     for (let i = 0; i < this.cols; i += 1) {
       for (let j = 0; j < this.rows; j += 1) {
-        this.cells.push(new Cell(i, j, index));
+        returnable.push(new Cell(i, j, index));
         index += 1;
       }
     }
+    return returnable;
   }
 
   draw() {

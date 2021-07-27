@@ -20,7 +20,7 @@ const constraints = [
 const init = () => {
   const svg = document.getElementById('grid');
   const puzzle = new Puzzle(svg, 9, 9, constraints);
-  puzzle.initCells();
+  //puzzle.initCells();
   puzzle.draw();
   console.log(puzzle);
 
