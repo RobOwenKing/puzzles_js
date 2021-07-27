@@ -1,9 +1,23 @@
+import { Cell } from './cell.js';
+
 export class Puzzle {
   constructor(_svg, _rows, _cols) {
-    this.svg  = _svg;
+    this.svg = _svg;
 
     this.rows = _rows;
     this.cols = _cols;
+
+    this.cells = [];
+  }
+
+  initCells() {
+    let index = 0;
+    for (let i = 0; i < this.cols; i += 1) {
+      for (let j = 0; j < this.rows; j += 1) {
+        this.cells.push(new Cell(i, j, index));
+        index += 1;
+      }
+    }
   }
 
   draw() {
@@ -13,6 +27,8 @@ export class Puzzle {
 
     this.svg.insertAdjacentHTML('beforeend',
         `<rect x="0" y="0" width="${gridWidth}" height="${gridHeight}" stroke="black" stroke-width="5" fill="transparent" />`);
+
+    this.cells.forEach((cell) => {cell.draw(this.svg)});
   }
 }
 
