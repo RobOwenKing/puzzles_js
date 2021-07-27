@@ -1,11 +1,17 @@
 import { Cell } from './cell.js';
 
+import { CONSTRAINT_CLASSES } from './constraints/constraint_classes.js';
+
 export class Puzzle {
-  constructor(_svg, _rows, _cols) {
+  constructor(_svg, _rows, _cols, _constraints) {
     this.svg = _svg;
 
     this.rows = _rows;
     this.cols = _cols;
+
+    this.constraints = _constraints.map(([type, data]) => {
+          return new CONSTRAINT_CLASSES[type](data);
+        });
 
     this.cells = [];
   }
