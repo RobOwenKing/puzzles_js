@@ -12,8 +12,6 @@ export class Cell {
     svg.insertAdjacentHTML('beforeend',
         `<rect class="cell" data-index="${this.index}"
                x="${x}" y="${y}"
-               width="101" height="101"
-               stroke="black" stroke-width="1"
-               fill="transparent" />`);
+               width="101" height="101" />`);
   }
 };
