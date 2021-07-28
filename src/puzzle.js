@@ -68,10 +68,14 @@ export class Puzzle {
                width="101" height="101" />`);
   }
 
+  /*
+    @todo Create separate UI class
+  */
   activateCells() {
     const cells = document.querySelectorAll('.cell');
     const body  = document.querySelector('body');
 
+    // The event listeners are passed arrow functions to avoid issues with 'this'
     cells.forEach(cell => {
       cell.addEventListener('mousedown', (event) => {
         this.selectHandler(event);

@@ -18,6 +18,9 @@ export class Cages {
     return d;
   }
 
+  /*
+    @todo Look at potential optimisations (of the output especially)
+  */
   drawCage(container, cage, index) {
     let d = "";
     cage.forEach((cell) => {
