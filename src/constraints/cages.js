@@ -24,8 +24,7 @@ export class Cages {
       d += this.drawCellCageBorders(cell, cage);
     })
     svg.insertAdjacentHTML('beforeend',
-        `<path id="cage-${index}" d="${d}"
-               stroke="black" stroke-width="5" />`);
+        `<path class="cage" data-index="${index}" d="${d}" />`);
   }
 
   draw(svg) {
