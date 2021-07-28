@@ -11,15 +11,15 @@ export class Puzzle {
 
     this.cells = this.initCells();
     this.constraints = _constraints.map(([type, data]) => {
-          return new CONSTRAINT_CLASSES[type](data, this.cells);
+          return new CONSTRAINT_CLASSES[type](data, this.cells, this.cols);
         });
   }
 
   initCells() {
     const returnable = [];
     let index = 0;
-    for (let i = 0; i < this.cols; i += 1) {
-      for (let j = 0; j < this.rows; j += 1) {
+    for (let j = 0; j < this.rows; j += 1) {
+      for (let i = 0; i < this.cols; i += 1) {
         returnable.push(new Cell(i, j, index));
         index += 1;
       }
@@ -35,7 +35,8 @@ export class Puzzle {
     this.svg.insertAdjacentHTML('beforeend',
         `<rect x="0" y="0" width="${gridWidth}" height="${gridHeight}" stroke="black" stroke-width="5" fill="transparent" />`);
 
-    this.cells.forEach((cell) => {cell.draw(this.svg)});
+    this.cells.forEach((cell) => { cell.draw(this.svg) });
+    this.constraints.forEach((constraint) => { constraint.draw(this.svg) });
   }
 }
 
