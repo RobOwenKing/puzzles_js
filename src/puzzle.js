@@ -44,24 +44,38 @@ export class Puzzle {
 
   deselectAll() {
     this.selected = [];
+    this.svg.selecteds.innerHTML = '';
   }
 
   selectHandler(event) {
     console.log(event);
 
     const index = parseInt(event.target.dataset.index);
+    const cell = this.cells[index];
 
     if (this.selectMode === 'single') { this.deselectAll() }
     this.selected.push(index);
-    console.log(this.selected);
+    this.svg.selecteds.insertAdjacentHTML('beforeend',
+        `<rect class="selected" data-index="${index}"
+               x="${cell.i * 100}" y="${cell.j * 100}"
+               width="101" height="101" />`);
   }
 
   activateCells() {
     const cells = document.querySelectorAll('.cell');
+    const body  = document.querySelector('body');
 
     cells.forEach(cell => {
-      cell.addEventListener('click', (event) => { this.selectHandler(event) })
+      cell.addEventListener('mousedown', (event) => {
+        this.selectHandler(event);
+        this.selectMode = 'multiple';
+      })
+      cell.addEventListener('mouseover', (event) => {
+        if (this.selectMode === 'multiple') { this.selectHandler(event) }
+      })
     })
+
+    body.addEventListener('mouseup', (event) => { this.selectMode = 'single' })
   }
 }
 
