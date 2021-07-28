@@ -17,8 +17,14 @@ const constraints = [
   /*,
   { givens: "..2.3.4...5.6.7.A" }*/
 
+const svg = {
+  svg:    document.getElementById('grid'),
+  cells:  document.getElementById('cells'),
+  cages:  document.getElementById('cages'),
+  selecteds: document.getElementById('selecteds')
+};
+
 const init = () => {
-  const svg = document.getElementById('grid');
   const puzzle = new Puzzle(svg, 9, 9, constraints);
   //puzzle.initCells();
   puzzle.draw();

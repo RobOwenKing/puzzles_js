@@ -18,16 +18,16 @@ export class Cages {
     return d;
   }
 
-  drawCage(svg, cage, index) {
+  drawCage(container, cage, index) {
     let d = "";
     cage.forEach((cell) => {
       d += this.drawCellCageBorders(cell, cage);
     })
-    svg.insertAdjacentHTML('beforeend',
+    container.insertAdjacentHTML('beforeend',
         `<path class="cage" data-index="${index}" d="${d}" />`);
   }
 
-  draw(svg) {
-    this.cages.forEach((cage, index) => { this.drawCage(svg, cage, index) })
+  draw(container) {
+    this.cages.forEach((cage, index) => { this.drawCage(container, cage, index) })
   }
 }

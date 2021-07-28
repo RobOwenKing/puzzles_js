@@ -6,10 +6,10 @@ export class Cell {
   }
 
 
-  draw(svg) {
+  draw(container) {
     const x = this.i * 100;
     const y = this.j * 100;
-    svg.insertAdjacentHTML('beforeend',
+    container.insertAdjacentHTML('beforeend',
         `<rect class="cell" data-index="${this.index}"
                x="${x}" y="${y}"
                width="101" height="101" />`);
