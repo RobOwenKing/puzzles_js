@@ -10,7 +10,8 @@ export class Cell {
     const x = this.i * 100;
     const y = this.j * 100;
     svg.insertAdjacentHTML('beforeend',
-        `<rect id="cell-${this.index}" x="${x}" y="${y}"
+        `<rect class="cell" data-index="${this.index}"
+               x="${x}" y="${y}"
                width="101" height="101"
                stroke="black" stroke-width="1"
                fill="transparent" />`);

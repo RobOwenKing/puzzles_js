@@ -9,22 +9,25 @@ export class Puzzle {
     this.rows = _rows;
     this.cols = _cols;
 
-    this.cells = this.initCells();
+    this.cells = this.initCellInstances();
+    this.selected = [];
+    this.selectMode = 'single';
+
     this.constraints = _constraints.map(([type, data]) => {
           return new CONSTRAINT_CLASSES[type](data, this.cells, this.cols);
         });
   }
 
-  initCells() {
-    const returnable = [];
+  initCellInstances() {
+    const cells = [];
     let index = 0;
     for (let j = 0; j < this.rows; j += 1) {
       for (let i = 0; i < this.cols; i += 1) {
-        returnable.push(new Cell(i, j, index));
+        cells.push(new Cell(i, j, index));
         index += 1;
       }
     }
-    return returnable;
+    return cells;
   }
 
   draw() {
@@ -37,6 +40,28 @@ export class Puzzle {
 
     this.cells.forEach((cell) => { cell.draw(this.svg) });
     this.constraints.forEach((constraint) => { constraint.draw(this.svg) });
+  }
+
+  deselectAll() {
+    this.selected = [];
+  }
+
+  selectHandler(event) {
+    console.log(event);
+
+    const index = parseInt(event.target.dataset.index);
+
+    if (this.selectMode === 'single') { this.deselectAll() }
+    this.selected.push(index);
+    console.log(this.selected);
+  }
+
+  activateCells() {
+    const cells = document.querySelectorAll('.cell');
+
+    cells.forEach(cell => {
+      cell.addEventListener('click', (event) => { this.selectHandler(event) })
+    })
   }
 }
 

@@ -23,7 +23,7 @@ const init = () => {
   //puzzle.initCells();
   puzzle.draw();
   console.log(puzzle);
-
+  puzzle.activateCells();
   //console.log(new CONSTRAINT_CLASSES['Puzzle'](svg, 10, 9, constraints));
 }
 
