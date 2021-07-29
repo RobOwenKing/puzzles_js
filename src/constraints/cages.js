@@ -31,6 +31,6 @@ export class Cages {
   }
 
   draw(container) {
-    this.cages.forEach((cage, index) => { this.drawCage(container, cage, index) })
+    this.cages.forEach((cage, index) => { this.drawCage(container.cages, cage, index) })
   }
 }

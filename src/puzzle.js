@@ -46,7 +46,7 @@ export class Puzzle {
         `<rect x="0" y="0" width="${gridWidth}" height="${gridHeight}" stroke="black" stroke-width="5" fill="transparent" />`);*/
 
     this.cells.forEach((cell) => { cell.draw(this.svg.cells) });
-    this.constraints.forEach((constraint) => { constraint.draw(this.svg.cages) });
+    this.constraints.forEach((constraint) => { constraint.draw(this.svg) });
   }
 
   deselectAll() {
