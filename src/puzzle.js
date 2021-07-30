@@ -88,5 +88,13 @@ export class Puzzle {
 
     body.addEventListener('mouseup', (event) => { this.selectMode = 'single'; })
   }
+
+  handleEntry(event) {
+    const value = event.key;
+    this.selected.forEach((index) => {
+      const cell = this.cells[index];
+      cell.handleEntry(value, this.svg);
+    })
+  }
 }
 

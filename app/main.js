@@ -41,6 +41,12 @@ const init = () => {
   console.log(puzzle);
   puzzle.activateCells();
   //console.log(new CONSTRAINT_CLASSES['Puzzle'](svg, 10, 9, constraints));
+  document.addEventListener('keypress', (event) => {
+    puzzle.handleEntry(event);
+  })
 }
 
 init();
+
+document.addEventListener('keyup', (event) => {console.log(event)})
+

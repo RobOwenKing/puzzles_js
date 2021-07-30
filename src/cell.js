@@ -16,4 +16,18 @@ export class Cell {
                x="${x}" y="${y}"
                width="100" height="100" />`);
   }
+
+  drawEntry(container) {
+    const x = (this.i + 0.5) * 100;
+    // 0.54 below is a magic number, but looks better to me than 0.5
+    const y = (this.j + 0.54) * 100;
+
+    container.insertAdjacentHTML('beforeend',
+      `<text class="given" x="${x}" y="${y}">${this.entry}</text>`);
+  }
+
+  handleEntry(value, container) {
+    this.entry = value;
+    this.drawEntry(container.constraints);
+  }
 };
