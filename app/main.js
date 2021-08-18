@@ -12,7 +12,16 @@ const constraints = [
       [57, 58, 59, 66, 67, 68, 75, 76, 77],
       [60, 61, 62, 69, 70, 71, 78, 79, 80]
     ]
-  ]
+  ],
+  ['sudoku', {
+    2: 1,
+    4: 2,
+    6: 3,
+    10: 4,
+    12: 5,
+    14: 6,
+    16: 'A'
+  }]
 ];
   /*,
   { givens: "..2.3.4...5.6.7.A" }*/
@@ -21,7 +30,8 @@ const svg = {
   svg:    document.getElementById('grid'),
   cells:  document.getElementById('cells'),
   cages:  document.getElementById('cages'),
-  selecteds: document.getElementById('selecteds')
+  selecteds: document.getElementById('selecteds'),
+  constraints: document.getElementById('constraints')
 };
 
 const init = () => {
@@ -31,6 +41,12 @@ const init = () => {
   console.log(puzzle);
   puzzle.activateCells();
   //console.log(new CONSTRAINT_CLASSES['Puzzle'](svg, 10, 9, constraints));
+  document.addEventListener('keypress', (event) => {
+    puzzle.handleEntry(event);
+  })
 }
 
 init();
+
+document.addEventListener('keyup', (event) => {console.log(event)})
+

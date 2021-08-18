@@ -14,3 +14,10 @@
   stroke-width: 10;
   stroke: green;
 }
+
+.given {
+  text-anchor: middle;
+  dominant-baseline: middle;
+  font-size: 64px;
+  font-family: sans-serif;
+}
